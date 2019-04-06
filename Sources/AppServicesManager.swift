@@ -54,4 +54,10 @@ open class PluggableApplicationDelegate: UIResponder, UIApplicationDelegate {
 
         return returns
     }
+    
+    internal func apply(_ work: (ApplicationService) -> Void) {
+        for service in _services {
+            work(service)
+        }
+    }
 }
